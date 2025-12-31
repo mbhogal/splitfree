@@ -2,6 +2,18 @@ import streamlit as st
 from auth import register, login
 from database import init_db
 
+# --- SEO & Page Config (MUST be first Streamlit commands) ---
+st.set_page_config(
+    page_title="SplitFree - Free Expense Splitter",
+    page_icon="💸",
+    layout="centered"
+)
+
+st.markdown("""
+<meta name="description" content="SplitFree is a 100% free app to split expenses with friends and roommates. No ads, no fees.">
+<meta name="keywords" content="free expense splitter, split bills, roommate expenses, group trip split, fair share app">
+""", unsafe_allow_html=True)
+
 init_db()  # Ensure DB ready
 
 st.set_page_config(page_title="SplitFree", layout="centered")
@@ -41,4 +53,5 @@ with tab2:
             elif register(new_username, new_name, new_email, new_password):
                 st.success("Registered successfully! Please login.")
             else:
+
                 st.error("Username or email already taken")
