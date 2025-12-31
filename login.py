@@ -11,6 +11,7 @@ st.set_page_config(
 # Clean text-only meta tags (no image = no broken/missing thumbnail issues)
 meta_tags = """
 <!-- Basic SEO -->
+<meta name="google-site-verification" content="P1WDBeOMkTu4YdkE7BtV9OvvpKOmHUtnvpHS9p1mScA" />
 <meta name="description" content="BillSplitFree: Split bills easily with friends, roommates, or groups. Completely free expense tracker with equal sharing – no ads, no limits!">
 
 <!-- Open Graph (for Facebook, LinkedIn, WhatsApp, Instagram, Threads, etc.) -->
@@ -70,5 +71,6 @@ with tab2:
             else:
 
                 st.error("Username or email already taken")
+
 
 
