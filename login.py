@@ -2,37 +2,30 @@ import streamlit as st
 from auth import register, login
 from database import init_db
 
-# --- SEO & Page Config (MUST be first Streamlit commands) ---
+# --- MUST BE FIRST STREAMLIT COMMAND ---
 st.set_page_config(
-    page_title="BillSplitFree - Free Bill Splitting App",
+    page_title="BillSplitFree - Free & Simple Bill Splitter",  # This sets browser tab title
     page_icon="💸",
+    layout="centered",  # Add your layout here
 )
 
-# Clean text-only meta tags (no image = no broken/missing thumbnail issues)
+# Your meta tags (keep for basic SEO, but won't fix social previews on Render)
 meta_tags = """
-<!-- Basic SEO -->
 <meta name="google-site-verification" content="P1WDBeOMkTu4YdkE7BtV9OvvpKOmHUtnvpHS9p1mScA" />
 <meta name="description" content="BillSplitFree: Split bills easily with friends, roommates, or groups. Completely free expense tracker with equal sharing – no ads, no limits!">
-
-<!-- Open Graph (for Facebook, LinkedIn, WhatsApp, Instagram, Threads, etc.) -->
 <meta property="og:title" content="BillSplitFree - Free & Simple Bill Splitter">
 <meta property="og:description" content="Split bills easily with friends, roommates, or groups. Free expense tracker with equal sharing – no ads, no sign-up required!">
 <meta property="og:url" content="https://www.billsplitfree.com">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BillSplitFree">
-
-<!-- Twitter / X Cards (text-only fallback) -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BillSplitFree - Free & Simple Bill Splitter">
 <meta name="twitter:description" content="Split bills easily with friends, roommates, or groups. Free expense tracker with equal sharing – no ads, no sign-up required!">
 """
-
 st.markdown(meta_tags, unsafe_allow_html=True)
-# === END OF META TAGS ===
+# === END META ===
 
 init_db()  # Ensure DB ready
-
-st.set_page_config(page_title="SplitFree", layout="centered")
 
 if "user_id" in st.session_state:
     st.switch_page("pages/1_📊_Dashboard.py")  # Redirect if already logged in
@@ -71,6 +64,7 @@ with tab2:
             else:
 
                 st.error("Username or email already taken")
+
 
 
 
