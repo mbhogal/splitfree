@@ -4,26 +4,26 @@ from database import init_db
 
 # --- SEO & Page Config (MUST be first Streamlit commands) ---
 st.set_page_config(
-    page_title="SplitFree - Free Expense Splitter",
+    page_title="BillSplitFree - Free Bill Splitting App",
     page_icon="💸",
-    layout="centered"
 )
 
+# Clean text-only meta tags (no image = no broken/missing thumbnail issues)
 meta_tags = """
 <!-- Basic SEO -->
 <meta name="description" content="BillSplitFree: Split bills easily with friends, roommates, or groups. Completely free expense tracker with equal sharing – no ads, no limits!">
-<meta name="keywords" content="free expense splitter, split bills, roommate expenses, group trip split, fair share app">
-<!-- Open Graph (Facebook, LinkedIn, WhatsApp, Instagram, Threads, etc.) -->
+
+<!-- Open Graph (for Facebook, LinkedIn, WhatsApp, Instagram, Threads, etc.) -->
 <meta property="og:title" content="BillSplitFree - Free & Simple Bill Splitter">
+<meta property="og:description" content="Split bills easily with friends, roommates, or groups. Free expense tracker with equal sharing – no ads, no sign-up required!">
 <meta property="og:url" content="https://www.billsplitfree.com">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BillSplitFree">
 
-<!-- Twitter / X Cards -->
-<meta name="twitter:card" content="summary_large_image">
+<!-- Twitter / X Cards (text-only fallback) -->
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BillSplitFree - Free & Simple Bill Splitter">
 <meta name="twitter:description" content="Split bills easily with friends, roommates, or groups. Free expense tracker with equal sharing – no ads, no sign-up required!">
-<meta name="twitter:image" content="https://www.billsplitfree.com/preview-image.jpg">  <!-- Same image -->
 """
 
 st.markdown(meta_tags, unsafe_allow_html=True)
@@ -70,4 +70,5 @@ with tab2:
             else:
 
                 st.error("Username or email already taken")
+
 
