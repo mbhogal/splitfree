@@ -9,10 +9,25 @@ st.set_page_config(
     layout="centered"
 )
 
-st.markdown("""
-<meta name="description" content="SplitFree is a 100% free app to split expenses with friends and roommates. No ads, no fees.">
+meta_tags = """
+<!-- Basic SEO -->
+<meta name="description" content="BillSplitFree: Split bills easily with friends, roommates, or groups. Completely free expense tracker with equal sharing – no ads, no limits!">
 <meta name="keywords" content="free expense splitter, split bills, roommate expenses, group trip split, fair share app">
-""", unsafe_allow_html=True)
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp, Instagram, Threads, etc.) -->
+<meta property="og:title" content="BillSplitFree - Free & Simple Bill Splitter">
+<meta property="og:url" content="https://www.billsplitfree.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BillSplitFree">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BillSplitFree - Free & Simple Bill Splitter">
+<meta name="twitter:description" content="Split bills easily with friends, roommates, or groups. Free expense tracker with equal sharing – no ads, no sign-up required!">
+<meta name="twitter:image" content="https://www.billsplitfree.com/preview-image.jpg">  <!-- Same image -->
+"""
+
+st.markdown(meta_tags, unsafe_allow_html=True)
+# === END OF META TAGS ===
 
 init_db()  # Ensure DB ready
 
@@ -55,3 +70,4 @@ with tab2:
             else:
 
                 st.error("Username or email already taken")
+
